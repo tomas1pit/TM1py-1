@@ -356,8 +356,9 @@ class Process(TM1Object):
     def remove_parameter(self, name):
         for parameter in self.parameters:
             if parameter['Name'] == name:
-                self._parameters.remove(parameter)
-
+                vuid = self._variables_ui_data[self._variables.index(variable)]
+                self._variables_ui_data.remove(vuid)
+    
     def drop_parameter_types(self):
         for p in range(len(self.parameters)):
             if 'Type' in self.parameters[p]:
